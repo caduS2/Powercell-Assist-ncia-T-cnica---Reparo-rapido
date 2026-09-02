@@ -201,15 +201,26 @@ export const Contact: React.FC = () => {
                     >
                       {COMPANY_DATA.phoneDisplay}
                     </a>
-                    <a
-                      href={COMPANY_DATA.defaultWhatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-primary font-medium hover:underline inline-flex items-center gap-1 mt-1"
-                    >
-                      <MessageSquare className="w-3 h-3" />
-                      Abrir conversa direta no WhatsApp
-                    </a>
+                    <div className="flex flex-wrap items-center gap-3 mt-1.5">
+                      <a
+                        href={COMPANY_DATA.defaultWhatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-primary font-medium hover:underline inline-flex items-center gap-1"
+                      >
+                        <MessageSquare className="w-3 h-3" />
+                        WhatsApp Direto
+                      </a>
+                      <span className="text-zinc-600 text-xs">|</span>
+                      <a
+                        href={COMPANY_DATA.instagram.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-rose-400 font-medium hover:underline inline-flex items-center gap-1"
+                      >
+                        <span>Direct @powercell_sbc</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -286,16 +297,38 @@ export const Contact: React.FC = () => {
                   <div className="w-10 h-10 rounded-lg bg-surface border border-white/10 flex items-center justify-center shrink-0 text-emerald-400 mt-0.5">
                     <Clock className="w-5 h-5" />
                   </div>
-                  <div>
-                    <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground block mb-1">
-                      Horário de Funcionamento
-                    </span>
-                    <p className="text-sm font-medium text-foreground">
-                      {COMPANY_DATA.hoursNote}
+                  <div className="w-full">
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground block">
+                        Horário de Funcionamento
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Aberto hoje
+                      </span>
+                    </div>
+
+                    {/* Schedule List */}
+                    <div className="bg-[#070c17] rounded-xl border border-white/[0.06] p-3 text-xs space-y-1.5">
+                      {COMPANY_DATA.schedule.days.map((item, idx) => (
+                        <div
+                          key={idx}
+                          className={`flex items-center justify-between py-1 px-1.5 rounded ${
+                            item.day === 'Domingo'
+                              ? 'text-amber-300/90 font-medium'
+                              : 'text-zinc-300'
+                          }`}
+                        >
+                          <span className="font-mono">{item.day}</span>
+                          <span className="font-semibold text-white font-mono">{item.hours}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <p className="text-[11px] text-zinc-400 mt-2 font-mono flex items-center gap-1">
+                      <span className="text-amber-400 font-bold">ℹ</span>
+                      <span>Feriados (como Independência do Brasil): 07:00–20:00 (podem variar).</span>
                     </p>
-                    <span className="text-xs text-muted-foreground">
-                      Consulte disponibilidade antes de se deslocar.
-                    </span>
                   </div>
                 </div>
               </div>

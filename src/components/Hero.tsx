@@ -60,15 +60,40 @@ export const Hero: React.FC = () => {
         >
           {/* Left Column (7 Cols on Desktop): Copy & CTAs */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* Eyebrow Badge */}
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface border border-white/10 shadow-sm mb-6">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              <span className="text-xs font-mono font-medium tracking-tight text-foreground/90 uppercase">
-                Assistência técnica no Centro de São Bernardo
-              </span>
+            {/* Eyebrow Badges */}
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-2.5 mb-6">
+              {/* Google Verified Score Pill */}
+              <a
+                href="#avaliacoes"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0d1527] border border-white/15 hover:border-amber-400/50 shadow-md transition-all group"
+              >
+                <div className="flex items-center text-amber-400">
+                  <span className="font-bold font-display text-white text-xs mr-1">4.9</span>
+                  <span className="text-amber-400 text-xs">★★★★★</span>
+                </div>
+                <span className="text-[11px] font-mono text-zinc-300">
+                  (352 avaliações no Google)
+                </span>
+              </a>
+
+              {/* Status Open Pill */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
+                <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>Aberto hoje até às 20:00</span>
+              </div>
+
+              {/* Instagram Pill */}
+              <a
+                href={COMPANY_DATA.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/25 text-rose-300 text-xs font-mono hover:bg-rose-500/20 transition-colors"
+              >
+                <span>@powercell_sbc</span>
+              </a>
             </motion.div>
 
             {/* Main Headline */}
@@ -78,7 +103,7 @@ export const Hero: React.FC = () => {
               style={{ fontSize: 'clamp(2.5rem, 5.2vw + 0.5rem, 5.25rem)' }}
             >
               Seu aparelho de volta.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-sky-300 to-[#D4AF37]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-[#FFB800]">
                 Sua rotina também.
               </span>
             </motion.h1>
@@ -86,9 +111,9 @@ export const Hero: React.FC = () => {
             {/* Subheadline */}
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8"
+              className="text-base sm:text-lg lg:text-xl text-zinc-300 max-w-2xl leading-relaxed mb-8"
             >
-              Diagnóstico claro e reparo técnico para celulares, computadores e notebooks, com atendimento direto no Centro de São Bernardo do Campo.
+              Mestre em reparos de celulares e computadores com atendimento direto na Galeria Lauro Gomes, no Centro de São Bernardo do Campo.
             </motion.p>
 
             {/* CTAs Group */}
@@ -101,20 +126,19 @@ export const Hero: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-primary-cta"
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm tracking-wide uppercase hover:bg-primary/90 transition-all duration-200 shadow-lg shadow-primary/20 active:scale-[0.98] group"
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#FFB800] text-black font-bold text-sm tracking-wide uppercase hover:bg-[#ffc220] transition-all duration-200 shadow-lg shadow-amber-500/20 active:scale-[0.98] group"
               >
-                <MessageSquare className="w-4 h-4 transition-transform group-hover:scale-110" />
-                <span>Entrar em contato</span>
+                <MessageSquare className="w-4 h-4 transition-transform group-hover:scale-110 fill-black" />
+                <span>Solicitar Orçamento no WhatsApp</span>
               </a>
 
               <a
-                href="#servicos"
-                onClick={handleScrollToServices}
+                href="#avaliacoes"
                 id="hero-secondary-cta"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-surface border border-white/10 text-foreground/90 hover:text-foreground hover:bg-surface-elevated hover:border-white/20 font-medium text-sm transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-surface border border-white/10 text-foreground/90 hover:text-foreground hover:bg-surface-elevated hover:border-amber-400/40 font-medium text-sm transition-all duration-200"
               >
-                <span>Conhecer os serviços</span>
-                <ArrowDown className="w-4 h-4 text-muted-foreground" />
+                <span>Ver 352 avaliações (4.9★)</span>
+                <ArrowDown className="w-4 h-4 text-amber-400" />
               </a>
             </motion.div>
 

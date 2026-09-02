@@ -20,14 +20,32 @@ export interface FactualStat {
   detail: string;
 }
 
+export interface CustomerReview {
+  id: string;
+  author: string;
+  role?: string;
+  rating: number;
+  timeAgo: string;
+  content: string;
+  serviceTag: string;
+  ownerReply?: {
+    date: string;
+    text: string;
+  };
+  highlight?: string;
+  avatarColor: string;
+  likesCount?: number;
+}
+
 export const COMPANY_DATA = {
   name: 'Powercell Assistência Técnica',
+  officialTitle: 'Powercell Assistência Técnica - Reparo rápido',
   shortName: 'Powercell',
   descriptor: 'Reparo rápido de celulares e computadores',
-  niche: 'Assistência técnica especializada',
-  phoneDisplay: '(11) 96172-9877',
-  phoneRaw: '5511961729877',
-  phoneTel: '+5511961729877',
+  niche: 'Serviço de reparos de aparelhos telefônicos em São Bernardo do Campo, SP',
+  phoneDisplay: '(11) 96173-0625',
+  phoneRaw: '5511961730625',
+  phoneTel: '+5511961730625',
   address: {
     gallery: 'Galeria Lauro Gomes',
     street: 'Av. Brg. Faria Lima, 1257',
@@ -41,9 +59,122 @@ export const COMPANY_DATA = {
   googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Galeria+Lauro+Gomes+Av+Brigadeiro+Faria+Lima+1257+Centro+Sao+Bernardo+do+Campo+SP',
   googleMapsEmbedUrl: 'https://maps.google.com/maps?q=Galeria%20Lauro%20Gomes%2C%20Av.%20Brigadeiro%20Faria%20Lima%2C%201257%20-%20Centro%2C%20S%C3%A3o%20Bernardo%20do%20Campo%20-%20SP&t=&z=16&ie=UTF8&iwloc=&output=embed',
   wazeUrl: 'https://waze.com/ul?q=Galeria%20Lauro%20Gomes%20Sao%20Bernardo%20do%20Campo',
-  defaultWhatsappUrl: 'https://wa.me/5511961729877?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Powercell%20e%20gostaria%20de%20solicitar%20um%20atendimento.',
-  hoursNote: 'Horário: consulte pelo WhatsApp',
+  defaultWhatsappUrl: 'https://wa.me/5511961730625?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Powercell%20e%20gostaria%20de%20solicitar%20um%20atendimento.',
+  hoursNote: 'Segunda a Sábado das 07:00 às 20:00 · Domingo das 07:00 às 16:00',
+  schedule: {
+    isOpen: true,
+    statusText: 'Aberto das 07:00 às 20:00 (Seg a Sáb) · Domingo 07:00 às 16:00',
+    weekdays: '07:00 às 20:00',
+    saturday: '07:00 às 20:00',
+    sunday: '07:00 às 16:00',
+    holidayNotice: 'Feriados (como Independência do Brasil): 07:00 às 20:00 (os horários podem variar)',
+    days: [
+      { day: 'Segunda-feira', hours: '07:00–20:00', note: 'Horário normal / feriados podem variar' },
+      { day: 'Terça-feira', hours: '07:00–20:00' },
+      { day: 'Quarta-feira', hours: '07:00–20:00' },
+      { day: 'Quinta-feira', hours: '07:00–20:00' },
+      { day: 'Sexta-feira', hours: '07:00–20:00' },
+      { day: 'Sábado', hours: '07:00–20:00' },
+      { day: 'Domingo', hours: '07:00–16:00' },
+    ],
+  },
+  instagram: {
+    handle: '@powercell_sbc',
+    username: 'powercell_sbc',
+    url: 'https://www.instagram.com/powercell_sbc/',
+    followersCount: 278,
+    postsCount: 8,
+    followingCount: 312,
+    badgeText: 'Mestre em Reparo',
+    bioHighlights: [
+      '🥇 Mestre em Reparo | Rápido, seguro e garantido',
+      '🔧 Especialista em iPhone & Android',
+      '📲 Orçamentos no direct & WhatsApp',
+    ],
+  },
+  googleBusiness: {
+    rating: 4.9,
+    reviewsCount: 352,
+    ratingMax: 5.0,
+    category: 'Serviço de reparos de aparelhos telefônicos em São Bernardo do Campo',
+    tags: [
+      { id: 'all', label: 'Todos os reparos', count: 352 },
+      { id: 'speed', label: 'Velocidade de reparo', count: 7 },
+      { id: 'screen', label: 'Troca de tela', count: 12 },
+      { id: 'same-day', label: 'Reparo no mesmo dia', count: 2 },
+      { id: 'quick', label: 'Resolução rápida', count: 2 },
+    ],
+  },
 };
+
+export const REVIEWS_LIST: CustomerReview[] = [
+  {
+    id: 'rev-1',
+    author: 'Bruna Evelyn',
+    role: 'Local Guide · 18 avaliações · 8 fotos',
+    rating: 5,
+    timeAgo: '1 mês atrás',
+    content: 'Excelente atendimento desde o primeiro contato. O conserto do meu celular foi super rápido e o valor também foi acessível. Muito satisfeita com o trabalho do Pablo. Podem confiar!',
+    serviceTag: 'Troca de Tela / Reparo Rápido',
+    highlight: 'super rápido e o valor também foi acessível',
+    avatarColor: 'from-amber-500 to-orange-600',
+    likesCount: 1,
+  },
+  {
+    id: 'rev-2',
+    author: 'Fabio Souza',
+    role: 'Cliente verificado · 6 avaliações',
+    rating: 5,
+    timeAgo: '4 meses atrás',
+    content: 'Atendimento top!!! Rapaz muito gente boa e o serviço profissional.',
+    serviceTag: 'Atendimento Técnico',
+    highlight: 'serviço profissional e atendimento top',
+    avatarColor: 'from-sky-500 to-blue-600',
+    likesCount: 2,
+    ownerReply: {
+      date: '2 meses atrás',
+      text: 'Olá, tudo bem? Muito obrigado por dedicar um tempinho para deixar sua avaliação no Google! Sua opinião é extremamente importante para nós e nos ajuda a melhorar continuamente. Ficamos felizes em saber que você teve uma boa experiência — será sempre um prazer atendê-lo!',
+    },
+  },
+  {
+    id: 'rev-3',
+    author: 'Laryssa Santos',
+    role: 'Cliente verificada · 10 avaliações · 2 fotos',
+    rating: 5,
+    timeAgo: '1 mês atrás',
+    content: 'Atendimento ótimo !!! Procurei assistência para consertar meu iPhone 11 e Pablo foi super atencioso e me atendeu super rápido ! Valor justo, recomendo a todos!',
+    serviceTag: 'iPhone 11 / Reparo Expresso',
+    highlight: 'consertar meu iPhone 11... atendeu super rápido e valor justo',
+    avatarColor: 'from-emerald-500 to-teal-600',
+    likesCount: 1,
+  },
+  {
+    id: 'rev-4',
+    author: 'Deividson Mota',
+    role: 'Cliente verificado · 1 avaliação',
+    rating: 5,
+    timeAgo: '6 meses atrás',
+    content: 'Incrível um atendimento simplesmente incrível , e destacando que o assistente teve a maior empatia do mundo me ajudando a consertar o celular da minha esposa literalmente em menos de 40 min qualidade rapidez ótimo atendimento Deus abençoe muito vocês',
+    serviceTag: 'Reparo em menos de 40 min',
+    highlight: 'consertar o celular da minha esposa em menos de 40 min',
+    avatarColor: 'from-purple-500 to-indigo-600',
+    ownerReply: {
+      date: '6 meses atrás',
+      text: 'Muito obrigado pela avaliação! Ficamos muito felizes em saber que você gostou do atendimento. Qualquer coisa que precisar no seu celular, estamos à disposição! 🙏🏻✨',
+    },
+  },
+  {
+    id: 'rev-5',
+    author: 'Bruno Faian',
+    role: 'Local Guide · 8 avaliações · 32 fotos',
+    rating: 5,
+    timeAgo: '8 meses atrás',
+    content: 'Melhor local para assistência técnica da região, buscou a peça em todos os lugares para arrumar na hora.... preço muito honesto.',
+    serviceTag: 'Arrumou na hora / Peça original',
+    highlight: 'Melhor da região, buscou a peça para arrumar na hora',
+    avatarColor: 'from-rose-500 to-pink-600',
+  },
+];
 
 export const SERVICES_LIST: ServiceItem[] = [
   {

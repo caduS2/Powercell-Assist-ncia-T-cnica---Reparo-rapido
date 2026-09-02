@@ -200,7 +200,7 @@ export const About: React.FC = () => {
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary hover:text-sky-300 underline underline-offset-4"
             >
               <MessageSquare className="w-4 h-4" />
-              <span>Chame no WhatsApp (11) 96172-9877</span>
+              <span>Chame no WhatsApp {COMPANY_DATA.phoneDisplay}</span>
             </a>
           </div>
         </div>
