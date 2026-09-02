@@ -1,0 +1,7 @@
+{
+  "name": "Powercell Assistência Técnica",
+  "description": "Reparo rápido e diagnóstico de celulares, computadores e notebooks no Centro de São Bernardo do Campo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

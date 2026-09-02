@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+
+    --surface: 222 40% 11%;
+    --surface-elevated: 222 38% 15%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 222 47% 7%;
+
+    --secondary: 45 65% 52%;
+    --secondary-foreground: 222 47% 7%;
+
+    --muted: 220 26% 14%;
+    --muted-foreground: 215 20% 68%;
+
+    --border: 220 26% 19%;
+    --border-hairline: 220 26% 25%;
+    --ring: 199 89% 48%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  * {
+    border-color: hsl(var(--border) / 0.8);
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+  }
+}
+
+/* Precision Tech Mesh Background & Hairline Accents */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(14, 165, 233, 0.12) 1px, transparent 1px);
+}
+
+/* Subtle Technical Ambient Glows */
+.ambient-glow-blue {
+  background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.12) 0%, rgba(14, 165, 233, 0) 70%);
+}
+
+.ambient-glow-gold {
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0) 70%);
+}
+
+/* Micro Technical Border Treatment */
+.hairline-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-border-hover {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.hairline-border-hover:hover {
+  border-color: rgba(14, 165, 233, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.15);
+}
+
+/* Custom Accessibility Focus State */
+:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Hide scrollbars when desired while keeping usability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
